@@ -13,6 +13,7 @@ import ProgresoPedido from './views/ProgresoPedido';
 
 //importar state de context
 import FirebaseState from './context/firebase/firebaseState';
+import PedidoState from './context/pedidos/pedidosState';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <>
     <FirebaseState>
+    <PedidoState> 
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
@@ -80,6 +82,7 @@ const App = () => {
           />
         </Stack.Navigator>
       </NavigationContainer>
+      </PedidoState> 
     </FirebaseState>
     </>
   );
