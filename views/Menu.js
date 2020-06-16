@@ -1,6 +1,6 @@
 import React,{ useContext, useEffect, Fragment } from 'react';
 import {StyleSheet,View} from 'react-native';
-import FirebaseContext from '../context/firebase/firebaseContext';
+import { useNavigation } from '@react-navigation/native';
 import {
     Container,
     Separator,
@@ -14,12 +14,21 @@ import {
 } from 'native-base'
 import globalStyles from '../styles/global';
 
+import FirebaseContext from '../context/firebase/firebaseContext';
+import PedidoContext from '../context/pedidos/pedidosContext';
 
 const  Menu = () =>{
 
     //Context de Firebase
     const { menu, obtenerProductos } = useContext(FirebaseContext);
 
+    //context de pedido
+    const {seleccionarPlatillo} = useContext(PedidoContext);
+
+    //Hook para redireccionar
+    const navigation = useNavigation();
+
+    
     useEffect(()=>{
         obtenerProductos();
         console.log(menu)
@@ -57,7 +66,12 @@ const  Menu = () =>{
                             <Fragment key={id}>
                                 {mostrarHeading(categoria,i)}
                                 <ListItem
-                                    
+                                    onPress = {()=>{
+                                        //Eliminar algunas propiedades del platillo
+                                        const { existencia , ...platillo2} = platillo;
+                                        seleccionarPlatillo(platillo2)
+                                        navigation.navigate('DetallePlatillo')
+                                    }}
                                 >
                                     <Thumbnail 
                                         large
