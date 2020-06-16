@@ -31,15 +31,15 @@ const  Menu = () =>{
             const categoriaAnterior = menu[i-1].categoria;
             if(categoriaAnterior !== categoria){
                 return(
-                    <Separator>
-                        <Text>{categoria}</Text>
+                    <Separator style={styles.separador}>
+                        <Text style={styles.separadorTexto}>{categoria}</Text>
                     </Separator>
                 )
             }
         } else{
             return(
-                <Separator>
-                    <Text>{categoria}</Text>
+                <Separator style={styles.separador}>
+                    <Text style={styles.separadorTexto}>{categoria}</Text>
                 </Separator>
             )
         }
@@ -83,5 +83,17 @@ const  Menu = () =>{
         </Container>
     );
 }
+
+const styles = StyleSheet.create({
+    separador:{
+        backgroundColor:'#000'
+    },
+    separadorTexto:{
+        color:'#ffda00',
+        fontWeight:'bold',
+        textTransform:'uppercase',
+        fontSize:14
+    }
+})
 
 export default Menu ;
