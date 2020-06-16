@@ -30,7 +30,8 @@ const App = () => {
             },
             headerTitleStyle:{
               fontWeight:'bold'
-            }
+            },
+            headerTintColor: '#000'
           }}
         >
           <Stack.Screen 
@@ -42,7 +43,7 @@ const App = () => {
           />
 
           <Stack.Screen 
-          name="Menun"
+          name="Menu"
           component={Menu}
           options={{
             title:"Nuestro Menu"
