@@ -14,6 +14,7 @@ import {
 } from 'native-base'
 import globalStyles from '../styles/global';
 
+
 const  Menu = () =>{
 
     //Context de Firebase
@@ -24,15 +25,37 @@ const  Menu = () =>{
         console.log(menu)
     },[]);
 
+    const mostrarHeading = (categoria,i) =>{
+
+        if(i>0){
+            const categoriaAnterior = menu[i-1].categoria;
+            if(categoriaAnterior !== categoria){
+                return(
+                    <Separator>
+                        <Text>{categoria}</Text>
+                    </Separator>
+                )
+            }
+        } else{
+            return(
+                <Separator>
+                    <Text>{categoria}</Text>
+                </Separator>
+            )
+        }
+        
+    }
+
     return( 
         <Container style={globalStyles.contenedor}>
             <Content style={{backgroundColor:'#fff'}}>
                 <List>
-                    {menu.map(platillo=>{
+                    {menu.map((platillo,i)=>{
                         console.log(platillo)
                         const {imagen, nombre, precio, descripcion, categoria, id } =platillo;
                         return(
                             <Fragment key={id}>
+                                {mostrarHeading(categoria,i)}
                                 <ListItem
                                     
                                 >

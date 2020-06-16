@@ -6,6 +6,8 @@ import FirebaseContext from './firebaseContext';
 
 import { OBTENER_PRODUCTOS_EXITO } from '../../types';
 
+import _ from 'lodash';
+
 const FirebaseState = props =>{
     
     console.log(firebase)
@@ -16,6 +18,7 @@ const FirebaseState = props =>{
 
     // useReducer con dispatch para ejecutar las funciones 
     const [state,dispatch] = useReducer(FirebaseReducer,initialState);
+    
 
     //Funcion que se ejecuta para traer los productos
     const obtenerProductos = () =>{
@@ -36,6 +39,10 @@ const FirebaseState = props =>{
                     }
                 }) ;
                 
+                //Ordenar por categoría con Lodash
+                platillos = _.sortBy(platillos,'categoria')
+                console.log(platillos)
+
                 //Tenemos resultados de la base de datos                
                 dispatch({
                     type:OBTENER_PRODUCTOS_EXITO,
