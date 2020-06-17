@@ -30,8 +30,7 @@ const  Menu = () =>{
 
     
     useEffect(()=>{
-        obtenerProductos();
-        console.log(menu)
+        obtenerProductos();        
     },[]);
 
     const mostrarHeading = (categoria,i) =>{
@@ -59,8 +58,7 @@ const  Menu = () =>{
         <Container style={globalStyles.contenedor}>
             <Content style={{backgroundColor:'#fff'}}>
                 <List>
-                    {menu.map((platillo,i)=>{
-                        console.log(platillo)
+                    {menu.map((platillo,i)=>{                        
                         const {imagen, nombre, precio, descripcion, categoria, id } =platillo;
                         return(
                             <Fragment key={id}>
