@@ -15,6 +15,7 @@ import ProgresoPedido from './views/ProgresoPedido';
 import FirebaseState from './context/firebase/firebaseState';
 import PedidoState from './context/pedidos/pedidosState';
 
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -59,7 +60,7 @@ const App = () => {
           />
 
           <Stack.Screen 
-          name="FormilarioPlatillo"
+          name="FormularioPlatillo"
           component={FormularioPlatillo}
           options={{
             title:"Ordenar Platillo"
